@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Application Manager</string>
+    <string name="tab_text_1">All Applications</string>
+    <string name="tab_text_2">My Applications</string>
+    <string name="application_icon_content_description">Application Icon</string>
+</resources>
