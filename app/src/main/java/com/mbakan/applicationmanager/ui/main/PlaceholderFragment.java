@@ -18,7 +18,7 @@ import android.arch.lifecycle.ViewModelProviders;
 
 import com.mbakan.applicationmanager.ApplicationItem;
 import com.mbakan.applicationmanager.R;
-import com.mbakan.applicationmanager.adapters.ApplicationListAdapter;
+import com.mbakan.applicationmanager.adapters.ApplicationAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,7 +31,7 @@ public class PlaceholderFragment extends Fragment {
     private static final String ARG_SECTION_NUMBER = "section_number";
 
     private PageViewModel pageViewModel;
-    private ApplicationListAdapter mListViewAdapter;
+    private ApplicationAdapter mListViewAdapter;
     private ArrayList<ApplicationItem> mApplicationItems;
 
     public static PlaceholderFragment newInstance(int index) {

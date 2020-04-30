@@ -12,6 +12,7 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -19,7 +20,7 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.SearchView;
 
-import com.mbakan.applicationmanager.adapters.ApplicationListAdapter;
+import com.mbakan.applicationmanager.adapters.ApplicationAdapter;
 import com.mbakan.applicationmanager.ui.main.SectionsPagerAdapter;
 
 import java.util.ArrayList;
@@ -30,11 +31,13 @@ public class MainActivity extends AppCompatActivity {
 
     private ArrayList<ApplicationItem> mApplicationItems;
     private RecyclerView mListView;
+    private LinearLayoutManager mLinearLayoutManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Intent mainIntent = new Intent(Intent.ACTION_MAIN, null);
+        mListView = findViewById(R.id.app_list);
         mainIntent.addCategory(Intent.CATEGORY_LAUNCHER);
         List<ResolveInfo> pkgAppsList = getPackageManager().queryIntentActivities(mainIntent, 0);
         final PackageManager packageManager = getPackageManager();
@@ -53,12 +56,12 @@ public class MainActivity extends AppCompatActivity {
                     new Date(installTime)));
 
         }
-        mListView.setAdapter(new ApplicationListAdapter(getApplicationContext(), mApplicationItems));
-/*        SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
-        ViewPager viewPager = findViewById(R.id.view_pager);
-        viewPager.setAdapter(sectionsPagerAdapter);
-        TabLayout tabs = findViewById(R.id.tabs);
-        tabs.setupWithViewPager(viewPager);*/
+        mListView.setLayoutManager(new LinearLayoutManager(this));
+        mListView.setBackgroundColor(getResources().getColor(R.color.colorAccent));
+        mListView.setAdapter(new ApplicationAdapter(mApplicationItems, this));
+
+
+
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {

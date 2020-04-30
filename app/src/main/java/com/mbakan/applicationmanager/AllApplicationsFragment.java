@@ -12,7 +12,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 
-import com.mbakan.applicationmanager.adapters.ApplicationListAdapter;
+import com.mbakan.applicationmanager.adapters.ApplicationAdapter;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -20,8 +20,8 @@ import java.util.List;
 
 public class AllApplicationsFragment extends Fragment {
 
-    private ApplicationListAdapter mListViewAdapter;
-    private ArrayList<ApplicationItem> mApplicationItems;
+    private ApplicationAdapter mListViewAdapter;
+    private List<ApplicationItem> mApplicationItems;
     private ListView mListView;
     private Button mListButton;
 
@@ -38,7 +38,7 @@ public class AllApplicationsFragment extends Fragment {
 
         mListView = view.findViewById(R.id.list_view);
 
-        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        /*mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 ApplicationItem item = (ApplicationItem) mListView.getItemAtPosition(position);
@@ -74,10 +74,10 @@ public class AllApplicationsFragment extends Fragment {
                             new Date(installTime)));
 
                 }
-                mListView.setAdapter(new ApplicationListAdapter(v.getContext(), mApplicationItems));
+                mListView.setAdapter(new ApplicationAdapter(mApplicationItems, v.getContext()));
                 mListView.setTextFilterEnabled(true);
             }
-        });
+        });*/
         return view;
     }
 }

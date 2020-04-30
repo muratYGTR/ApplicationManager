@@ -13,7 +13,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 
-import com.mbakan.applicationmanager.adapters.ApplicationListAdapter;
+import com.mbakan.applicationmanager.adapters.ApplicationAdapter;
 import com.mbakan.applicationmanager.ui.main.PlaceholderFragment;
 
 import java.util.ArrayList;
@@ -22,7 +22,7 @@ import java.util.List;
 
 public class MyApplicationsFragment extends Fragment {
 
-    private ApplicationListAdapter mListViewAdapter;
+    private ApplicationAdapter mListViewAdapter;
     private ArrayList<ApplicationItem> mApplicationItems;
     private ListView mListView;
     private Button mListButton;
